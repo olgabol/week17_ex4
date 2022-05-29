@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="forRandom">
+
+    </div>
+    <button onclick="addNumber()">Сгененировать массив</button>
+
+    <script>
+        function addNumber() {
+
+            let randoms = [];
+            let random = []
+            for (let i = 0; i < 10; i++) {
+                let random = randoms.push(Math.round(Math.random() * 10 + Math.random() * -10));
+            }
+            let max = Math.max(...randoms);
+
+            let min = Math.min(...randoms);
+
+            function getAverage(randoms) {
+                let av = 0;
+                for (let index = 0; index < randoms.length; index++) {
+                    av += randoms[index];
+                }
+                average = av / 10;
+                return average;
+            }
+
+            let av = +getAverage(randoms);
+
+            function getSumm(randoms) {
+                let sum = 0
+                for (let element = 0; element < randoms.length; element++) {
+                    sum += randoms[element];
+                }
+                return sum;
+            }
+            let s = getSumm(randoms);
+
+            function getMulty(randoms) {
+                let m = 0
+                for (let rand = 0; rand < randoms.length; rand++) {
+                    m *= randoms[rand];
+                }
+                return m;
+            }
+            let mult = getMulty(randoms)
+
+            document.querySelector('.forRandom').innerHTML += `Получили: ${randoms}` + `<br>` + `Максимальное: ${max}` +
+                `<br>` + `Минимальное: ${min}` +
+                `<br>` + `Среднее арифметическое: ${av}` +
+                `<br>` + `Сумма: ${s}` +
+                `<br>` + `Произведение чисел ${mult}` +
+                `<br>`
+
+
+
+        }
+    </script>
+</body>
+
+</html>
